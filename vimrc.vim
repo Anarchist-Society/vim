@@ -254,9 +254,16 @@ nnoremap <C-RIGHT> <C-w><
 " ==========================================================================
 
 " Para tabular con 2 espacios ficheros html, css, javascript, json
-autocmd FileType html,css,javascript,json setlocal shiftwidth=2 tabstop=2 expandtab
+" autocmd FileType html,css,javascript,json setlocal shiftwidth=2 tabstop=2 expandtab
 
+" Para tabular con 2 espacios ficheros sql
 " autocmd FileType sql setlocal shiftwidth=2 tabstop=2 expandtab
+
+" Prettier al guardar en ficheros web (receta oficial de coc.nvim)
+augroup coc_fmt
+    autocmd!
+    autocmd BufWritePre *.html,*.css,*.js,*.json call CocAction('format')
+augroup END
 
 " Solución para indentar html + css
 " let g:html_indent_style1 = "inc"
