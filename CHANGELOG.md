@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## [2.3.0] - 2026-09-08
+### Changed
+- Reorganized section headers, spacing and comment structure throughout vimrc.vim
+- Normalized separator widths: sub-sections now use a consistent width, main sections another
+- Moved plugin descriptions from inline comments to their own lines
+- Restored `sudo npm install -g live-server` install hook for vim-live-server
+- Activated `relativenumber` (hybrid line numbers)
+- Added clock to statusline (`%{strftime('%H:%M')}`)
+- Reactivated filetype autocmd for 2-space indentation in html, css, javascript, json
+- Removed `g:startify_change_to_dir = 0` to restore default behavior: the prompt follows the directory of the file opened from startify
+- Replaced tab indentation with spaces in the persistent undo block
+### Disabled
+- `vim-atomic`, `vim-cosmic`, `vim-solarized8`, `purify` colorschemes (commented out, tokyonight kept)
+- `<LEADER>t` terminal mapping
+- `<leader>ca` coc code action mapping
+### Removed
+- `BufWritePre` autocmds for prettier formatting (`prettier.forceFormatDocument`, `prettier.formatFile`)
+
 ## [2.2.0] - 2026-09-08
 ### Changed
 - Enabled coc-nvim plugin for autocompletion + LSP support
