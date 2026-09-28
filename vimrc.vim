@@ -99,8 +99,6 @@ Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 " Muestra iconos de git en NERDTree
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Indent lines
-" Plug 'Yggdroot/indentLine'
 
 " ==============================
 " Web development
@@ -108,21 +106,12 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Habilitar Live-Server
 Plug 'https://github.com/wolandark/vim-live-server.git', { 'do': 'sudo npm install -g live-server' }
-" Plug 'mattn/emmet-vim' " Expansión de abreviaciones HTML/CSS (Emmet) -> Lo he comentado porque con coc-emmet ya cumple su función
-" Plug 'alvan/vim-closetag' " Cierra automáticamente etiquetas HTML/XML -> Lo he comentado porque coc-html ya cumple con su función
-" Plug 'AndrewRadev/tagalong.vim' " Actualiza etiquetas de cierre al renombrar la apertura (Conflicto con emmet) arreglar
-" Plug 'ap/vim-css-color' " Solucionar error con hsl y hsla
 
 " ==============================
 " Apariencia
 " ==============================
 
 Plug 'ghifarit53/tokyonight-vim' " Colorscheme
-" Plug 'gerardbm/vim-atomic' " Colorscheme
-" Plug 'gerardbm/vim-cosmic' " Colorscheme
-" Plug 'altercation/vim-colors-solarized' " Colorscheme
-" Plug 'lifepillar/vim-solarized8' " Colorscheme
-" Plug 'kyoz/purify', { 'rtp': 'vim' } "Colorscheme
 
 " Habilita colores en NERDTree e iconos de vim-devicons
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -201,23 +190,9 @@ let g:NERDTreeExactMatchHighlightFullName = 1
 " Cuando coincide con un patrón definido (*.config.js, *.test.ts, etc)
 let g:NERDTreePatternMatchHighlightFullName = 1
 
-" ==============================
-" Emmet
-" ==============================
-
-" let g:user_emmet_leader_key = ','
-
-" let g:indentLine_enabled = 0
-
 " ==========================================================================
 " 4. MAPPINGS
 " ==========================================================================
-
-" Dvorak - Remapeo de navegación (hjkl → rtns)
-" nnoremap r h " ← izquierda
-" nnoremap t j " ↓ abajo
-" nnoremap n k " ↑ arriba
-" nnoremap s l " → derecha
 
 " Leader key
 let mapleader = ","
@@ -225,12 +200,6 @@ nnoremap <LEADER>w :w<ENTER>
 nnoremap <LEADER>q :q<ENTER>
 nnoremap <LEADER>n :NERDTreeToggle<CR>
 nnoremap <LEADER>f :NERDTreeFind<CR>
-" nmap <silent> <leader>ca <Plug>(coc-codeaction-line)
-" nnoremap <LEADER>t :terminal<CR>
-" nnoremap <LEADER>tr :terminal ./mvnw spring-boot:run<CR>
-
-" Insert mode
-" inoremap jj <ESC>
 
 " Normal mode
 nnoremap <SPACE> :
@@ -253,31 +222,11 @@ nnoremap <C-RIGHT> <C-w><
 " 5. VIMSCRIPT
 " ==========================================================================
 
-" Para tabular con 2 espacios ficheros html, css, javascript, json
-autocmd FileType html,css,javascript,json setlocal shiftwidth=2 tabstop=2 expandtab
-
-" Para tabular con 2 espacios ficheros sql
-" autocmd FileType sql setlocal shiftwidth=2 tabstop=2 expandtab
-
 " Prettier al guardar en ficheros web (receta oficial de coc.nvim)
 augroup coc_fmt
     autocmd!
     autocmd BufWritePre *.html,*.css,*.js,*.json call CocAction('format')
 augroup END
-
-" Solución para indentar html + css
-" let g:html_indent_style1 = "inc"
-
-" Solución para indentar python
-" autocmd FileType python setlocal nosmartindent
-
-" Configuración extra del indentador de Python (Vim 8.2+ / Neovim)
-" let g:python_indent = {}
-" let g:python_indent.disable_parentheses_indenting = 1
-" let g:python_indent.closed_paren_align_last_line = 0
-
-" let g:indentLine_enabled = 0 " Desactivado por defecto
-" let g:indentLine_fileType = ['html'] " Solo activo en HTML
 
 " ==========================================================================
 " 6. STATUS LINE

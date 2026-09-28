@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## [2.4.0] - 2026-09-28
+### Removed
+- Commented-out `Yggdroot/indentLine` plugin declaration and its section header
+- Commented-out `mattn/emmet-vim` (already covered by the coc-emmet extension)
+- Commented-out `alvan/vim-closetag` (already covered by the coc-html extension)
+- Commented-out `AndrewRadev/tagalong.vim` (unresolved conflict with emmet)
+- Commented-out `ap/vim-css-color` plugin declaration
+- Commented-out alternative colorschemes: `gerardbm/vim-atomic`, `gerardbm/vim-cosmic`,
+  `altercation/vim-colors-solarized`, `lifepillar/vim-solarized8` and `kyoz/purify`
+
 ## [2.3.0] - 2026-09-08
 ### Changed
 - Reorganized section headers, spacing and comment structure throughout vimrc.vim
