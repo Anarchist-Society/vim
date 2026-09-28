@@ -254,7 +254,7 @@ nnoremap <C-RIGHT> <C-w><
 " ==========================================================================
 
 " Para tabular con 2 espacios ficheros html, css, javascript, json
-" autocmd FileType html,css,javascript,json setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType html,css,javascript,json setlocal shiftwidth=2 tabstop=2 expandtab
 
 " Para tabular con 2 espacios ficheros sql
 " autocmd FileType sql setlocal shiftwidth=2 tabstop=2 expandtab
