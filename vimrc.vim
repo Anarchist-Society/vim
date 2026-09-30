@@ -137,7 +137,6 @@ call plug#end()
 " ==============================
 
 let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1 " cursiva en keywords (requiere fuente con cursiva)
 colorscheme tokyonight
 
 " ==============================

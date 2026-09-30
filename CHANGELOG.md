@@ -1,12 +1,19 @@
 # CHANGELOG
 
+## [2.5.1] - 2026-09-30
+### Removed
+- `g:tokyonight_enable_italic = 1`: se retira la cursiva en keywords porque la fuente
+  en uso no incluye variante itálica y las keywords se dibujaban con una inclinada
+  sintética poco legible. No hace falta fijarla: el plugin la lee con
+  `get(g:, 'tokyonight_enable_italic', 0)`, ya desactivada por defecto
+
 ## [2.5.0] - 2026-09-30
 ### Added
 - `mattn/emmet-vim` plugin, enabled only on the `html` and `css` filetypes via
   `g:user_emmet_install_global = 0` and `autocmd FileType html,css EmmetInstall`
 - Default `<C-y>,` trigger kept, without overriding `g:user_emmet_leader_key`
-- `g:tokyonight_style = 'night'` and `g:tokyonight_enable_italic = 1`, both set
-  before `colorscheme tokyonight` as the plugin requires
+- `g:tokyonight_style = 'night'`, set before `colorscheme tokyonight` as the plugin
+  requires. `g:tokyonight_enable_italic = 1` was also added here, later removed in [2.5.1]
 - Blank lines between consecutive `Plug` declarations in the tools section
 ### Notes
 - `coc-emmet` was evaluated and rejected. It only provides completion (the author
