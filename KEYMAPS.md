@@ -39,3 +39,4 @@
 |-------------|----------------------------------------------------|
 | `<LEADER>n` | Toggle NERDTree (`:NERDTreeToggle`)                |
 | `<LEADER>f` | Reveal current file in NERDTree (`:NERDTreeFocus`) |
+| `<C-y>,`    | Expand Emmet abbreviation (html/css only)          |

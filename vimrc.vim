@@ -89,14 +89,19 @@ call plug#begin('~/.vim/plugged')
 
 " Linter en tiempo real
 Plug 'dense-analysis/ale'
+
 " Autocompletado + LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Explorador de ficheros
 Plug 'preservim/nerdtree'
+
 " Pantalla de inicio
 Plug 'mhinz/vim-startify'
+
 " Muestra iconos de git en ficheros
 Plug 'airblade/vim-gitgutter'
+
 " Muestra iconos de git en NERDTree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
@@ -106,6 +111,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Habilitar Live-Server
 Plug 'https://github.com/wolandark/vim-live-server.git', { 'do': 'sudo npm install -g live-server' }
+
+" Expansión de abreviaturas HTML/CSS
+Plug 'mattn/emmet-vim'
 
 " ==============================
 " Apariencia
@@ -128,6 +136,8 @@ call plug#end()
 " Colorscheme
 " ==============================
 
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1 " cursiva en keywords (requiere fuente con cursiva)
 colorscheme tokyonight
 
 " ==============================
@@ -189,6 +199,14 @@ let g:NERDTreeExactMatchHighlightFullName = 1
 " Aplica el resaltado al nombre completo
 " Cuando coincide con un patrón definido (*.config.js, *.test.ts, etc)
 let g:NERDTreePatternMatchHighlightFullName = 1
+
+" ==============================
+" Emmet
+" ==============================
+
+" Activar Emmet solo en ficheros html y css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 " ==========================================================================
 " 4. MAPPINGS

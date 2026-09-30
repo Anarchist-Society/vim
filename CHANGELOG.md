@@ -1,9 +1,28 @@
 # CHANGELOG
 
+## [2.5.0] - 2026-09-30
+### Added
+- `mattn/emmet-vim` plugin, enabled only on the `html` and `css` filetypes via
+  `g:user_emmet_install_global = 0` and `autocmd FileType html,css EmmetInstall`
+- Default `<C-y>,` trigger kept, without overriding `g:user_emmet_leader_key`
+- `g:tokyonight_style = 'night'` and `g:tokyonight_enable_italic = 1`, both set
+  before `colorscheme tokyonight` as the plugin requires
+- Blank lines between consecutive `Plug` declarations in the tools section
+### Notes
+- `coc-emmet` was evaluated and rejected. It only provides completion (the author
+  points to emmet-vim for expansion), it has not been published since 2020, and it
+  cannot be installed here: npm 12 ships `allow-git = "none"`, while
+  `coc-emmet@1.1.6` pins a devDependency to a GitHub branch
+  (`@emmetio/css-parser@github:ramya-rao-a/css-parser#vscode`), so the install
+  aborts with `EALLOWGIT`. coc.nvim does not enforce `engines.coc`, that mismatch
+  was not the blocker.
+
 ## [2.4.0] - 2026-09-28
 ### Removed
 - Commented-out `Yggdroot/indentLine` plugin declaration and its section header
-- Commented-out `mattn/emmet-vim` (already covered by the coc-emmet extension)
+- Commented-out `mattn/emmet-vim` (unverified claim that coc-emmet replaced it: coc-emmet
+  only offers completion and was never actually installed here; emmet-vim has since been
+  re-enabled in [2.5.0])
 - Commented-out `alvan/vim-closetag` (already covered by the coc-html extension)
 - Commented-out `AndrewRadev/tagalong.vim` (unresolved conflict with emmet)
 - Commented-out `ap/vim-css-color` plugin declaration
