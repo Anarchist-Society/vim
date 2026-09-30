@@ -1,208 +1,246 @@
 # CHANGELOG
 
 ## [2.5.1] - 2026-09-30
-### Removed
+### Eliminado
 - `g:tokyonight_enable_italic = 1`: se retira la cursiva en keywords porque la fuente
   en uso no incluye variante itálica y las keywords se dibujaban con una inclinada
   sintética poco legible. No hace falta fijarla: el plugin la lee con
   `get(g:, 'tokyonight_enable_italic', 0)`, ya desactivada por defecto
 
 ## [2.5.0] - 2026-09-30
-### Added
-- `mattn/emmet-vim` plugin, enabled only on the `html` and `css` filetypes via
-  `g:user_emmet_install_global = 0` and `autocmd FileType html,css EmmetInstall`
-- Default `<C-y>,` trigger kept, without overriding `g:user_emmet_leader_key`
-- `g:tokyonight_style = 'night'`, set before `colorscheme tokyonight` as the plugin
-  requires. `g:tokyonight_enable_italic = 1` was also added here, later removed in [2.5.1]
-- Blank lines between consecutive `Plug` declarations in the tools section
-### Notes
-- `coc-emmet` was evaluated and rejected. It only provides completion (the author
-  points to emmet-vim for expansion), it has not been published since 2020, and it
-  cannot be installed here: npm 12 ships `allow-git = "none"`, while
-  `coc-emmet@1.1.6` pins a devDependency to a GitHub branch
-  (`@emmetio/css-parser@github:ramya-rao-a/css-parser#vscode`), so the install
-  aborts with `EALLOWGIT`. coc.nvim does not enforce `engines.coc`, that mismatch
-  was not the blocker.
+### Añadido
+- Plugin `mattn/emmet-vim`, activo solo en los filetype `html` y `css` mediante
+  `g:user_emmet_install_global = 0` y `autocmd FileType html,css EmmetInstall`
+- Se mantiene el trigger por defecto `<C-y>,` sin sobrescribir
+  `g:user_emmet_leader_key`
+- `g:tokyonight_style = 'night'`, definido antes de `colorscheme tokyonight` como
+  exige el plugin. `g:tokyonight_enable_italic = 1` también se añadió aquí y se
+  retiró después en [2.5.1]
+- Líneas en blanco entre declaraciones `Plug` consecutivas en la sección de
+  herramientas
+### Notas
+- `coc-emmet` se evaluó y se descartó: solo ofrece completado (su autor apunta a
+  `emmet-vim` para la expansión), no se publica desde 2020 y no se puede instalar
+  aquí, porque npm 12 incluye `allow-git = "none"` mientras que
+  `coc-emmet@1.1.6` fija una devDependency a una rama de GitHub
+  (`@emmetio/css-parser@github:ramya-rao-a/css-parser#vscode`), de modo que la
+  instalación aborta con `EALLOWGIT`. coc.nvim no aplica `engines.coc`, ese
+  desajuste no fue el motivo.
 
 ## [2.4.0] - 2026-09-28
-### Removed
-- Commented-out `Yggdroot/indentLine` plugin declaration and its section header
-- Commented-out `mattn/emmet-vim` (unverified claim that coc-emmet replaced it: coc-emmet
-  only offers completion and was never actually installed here; emmet-vim has since been
-  re-enabled in [2.5.0])
-- Commented-out `alvan/vim-closetag` (already covered by the coc-html extension)
-- Commented-out `AndrewRadev/tagalong.vim` (unresolved conflict with emmet)
-- Commented-out `ap/vim-css-color` plugin declaration
-- Commented-out alternative colorschemes: `gerardbm/vim-atomic`, `gerardbm/vim-cosmic`,
-  `altercation/vim-colors-solarized`, `lifepillar/vim-solarized8` and `kyoz/purify`
+### Eliminado
+- Declaración comentada del plugin `Yggdroot/indentLine` y su encabezado de sección
+- `mattn/emmet-vim` comentado (afirmación sin verificar de que coc-emmet lo
+  sustituyó: coc-emmet solo ofrece completado y nunca estuvo realmente instalado
+  aquí; emmet-vim se ha reactivado desde [2.5.0])
+- `alvan/vim-closetag` comentado (ya cubierto por la extensión coc-html)
+- `AndrewRadev/tagalong.vim` comentado (conflicto sin resolver con emmet)
+- Declaración comentada del plugin `ap/vim-css-color`
+- Colorschemes alternativos comentados: `gerardbm/vim-atomic`,
+  `gerardbm/vim-cosmic`, `altercation/vim-colors-solarized`,
+  `lifepillar/vim-solarized8` y `kyoz/purify`
 
 ## [2.3.0] - 2026-09-08
-### Changed
-- Reorganized section headers, spacing and comment structure throughout vimrc.vim
-- Normalized separator widths: sub-sections now use a consistent width, main sections another
-- Moved plugin descriptions from inline comments to their own lines
-- Restored `sudo npm install -g live-server` install hook for vim-live-server
-- Activated `relativenumber` (hybrid line numbers)
-- Added clock to statusline (`%{strftime('%H:%M')}`)
-- Reactivated filetype autocmd for 2-space indentation in html, css, javascript, json
-- Removed `g:startify_change_to_dir = 0` to restore default behavior: the prompt follows the directory of the file opened from startify
-- Replaced tab indentation with spaces in the persistent undo block
-### Disabled
-- `vim-atomic`, `vim-cosmic`, `vim-solarized8`, `purify` colorschemes (commented out, tokyonight kept)
-- `<LEADER>t` terminal mapping
-- `<leader>ca` coc code action mapping
-### Removed
-- `BufWritePre` autocmds for prettier formatting (`prettier.forceFormatDocument`, `prettier.formatFile`)
+### Cambiado
+- Se reorganizaron los encabezados de sección, los espacios y la estructura de
+  comentarios de todo vimrc.vim
+- Se normalizaron los anchos de los separadores: las subsecciones usan ahora un
+  ancho constante y las secciones principales otro
+- Las descripciones de los plugins pasaron de comentarios en línea a líneas propias
+- Se restauró el hook de instalación `sudo npm install -g live-server` de
+  vim-live-server
+- Se activó `relativenumber` (números de línea híbridos)
+- Se añadió el reloj al statusline (`%{strftime('%H:%M')}`)
+- Se reactivó el autocmd de filetype para la indentación de 2 espacios en html,
+  css, javascript y json
+- Se eliminó `g:startify_change_to_dir = 0` para recuperar el comportamiento por
+  defecto: el prompt sigue el directorio del fichero abierto desde startify
+- Se sustituyó la indentación con tabuladores por espacios en el bloque de undo
+  persistente
+### Deshabilitado
+- Colorschemes `vim-atomic`, `vim-cosmic`, `vim-solarized8` y `purify`
+  (comentados, se mantiene tokyonight)
+- Mapeo de terminal `<LEADER>t`
+- Mapeo de coc code action `<leader>ca`
+### Eliminado
+- Autocmds `BufWritePre` de formateo con prettier (`prettier.forceFormatDocument`,
+  `prettier.formatFile`)
 
 ## [2.2.0] - 2026-09-08
-### Changed
-- Enabled coc-nvim plugin for autocompletion + LSP support
-- Disabled indentLine plugin
-- Disabled filetype-specific autocmd indentation for html, css, javascript, json, sql, python
-- Disabled BufWritePre prettier auto-formatting
-- Disabled html_indent_style1 setting
-- Disabled python indent configuration
-- Disabled indentLine_fileType restriction
+### Cambiado
+- Se habilitó el plugin coc-nvim para autocompletado y soporte LSP
+- Se deshabilitó el plugin indentLine
+- Se deshabilitó la indentación por autocmd según filetype para html, css,
+  javascript, json, sql y python
+- Se deshabilitó el formateo automático con prettier en BufWritePre
+- Se deshabilitó el ajuste html_indent_style1
+- Se deshabilitó la configuración de indentación de python
+- Se deshabilitó la restricción indentLine_fileType
 
 ## [2.1.0] - 2026-08-01
-### Added
-- Dvorak keyboard support: added commented mappings (r/t/n/s → hjkl) for future activation
-### Changed
-- Enabled absolute line numbers (`set number`)
-- Switched default colorscheme to `tokyonight`
-- indentLine now only enabled for HTML files (`g:indentLine_fileType = ['html']`)
-### Disabled
-- coc-nvim plugin (commented out)
-- `inoremap jj <ESC>` mapping (commented out)
-- `emmet-vim` leader key config (commented out)
+### Añadido
+- Soporte del teclado Dvorak: se añadieron los mapeos comentados (r/t/n/s → hjkl)
+  para activarlos más adelante
+### Cambiado
+- Se habilitaron los números de línea absolutos (`set number`)
+- El colorscheme por defecto pasa a ser `tokyonight`
+- indentLine ahora solo se habilita en ficheros HTML
+  (`g:indentLine_fileType = ['html']`)
+### Deshabilitado
+- Plugin coc-nvim (comentado)
+- Mapeo `inoremap jj <ESC>` (comentado)
+- Configuración de la tecla líder de emmet-vim (comentada)
 
 ## [2.0.6] - 2026-02-15
-### Changed
-- Improved internal documentation in vimrc.vim: added clear Spanish comments explaining
-  - `NERDTreeRespectWildIgnore` behavior
-  - WebDevIcons default icon color disabling for folders and files
-  - Full filename highlighting in NERDTree (by extension, exact match and patterns)
+### Cambiado
+- Se mejoró la documentación interna de vimrc.vim: se añadieron comentarios en
+  español que aclaran
+  - El comportamiento de `NERDTreeRespectWildIgnore`
+  - La desactivación del color de icono por defecto de WebDevIcons en carpetas
+    y ficheros
+  - El resaltado del nombre completo en NERDTree (por extensión, coincidencia
+    exacta y patrones)
 
 ## [2.0.5] - 2026-02-14
-### Added
-- Filetype-specific indentation for JSON: `shiftwidth=2`, `tabstop=2`, `expandtab`
-- Improved HTML indentation: `let g:html_indent_style1 = "inc"` to add one extra indent level for CSS inside `<style>` tags
+### Añadido
+- Indentación específica por filetype para JSON: `shiftwidth=2`, `tabstop=2`,
+  `expandtab`
+- Mejora de la indentación de HTML: `let g:html_indent_style1 = "inc"` añade un
+  nivel de indentación extra para el CSS dentro de las etiquetas `<style>`
 
 ## [2.0.4] - 2026-02-14
-### Changed
-- Switched default colorscheme to `atomic` for improved minimalism and better color consistency
-### Added
-- `let g:NERDTreeRespectWildIgnore = 1`: Makes NERDTree honor Vim's `wildignore` settings to hide build/output files consistently
+### Cambiado
+- El colorscheme por defecto pasa a ser `atomic`, por un minimalismo mayor y una
+  coherencia de color más consistente
+### Añadido
+- `let g:NERDTreeRespectWildIgnore = 1`: hace que NERDTree respete los ajustes de
+  `wildignore` de Vim para ocultar de forma consistente los ficheros de compilación
+  y de salida
 
 ## [2.0.3] - 2026-02-14
-### Changed
-- Remove line numbers (commented `set number` and `set relativenumber` for cleaner, more minimalistic interface)
-- Update persistent undo
-- Expanded `wildignore` to include `*.out`, `*.class`, `*.pdf`
-### Added
-- `AndrewRadev/tagalong.vim`: Sync opening and closing HTML/XML tags on rename (great for HTML/CSS editing)
-- `wolandark/vim-live-server` (unused live reload plugin)
-- `mattn/emmet-vim` (Emmet abbreviation expansion under testing/minimal config)
+### Cambiado
+- Se eliminan los números de línea (`set number` y `set relativenumber`
+  comentados para una interfaz más limpia y minimalista)
+- Se actualiza el undo persistente
+- Se amplía `wildignore` para incluir `*.out`, `*.class` y `*.pdf`
+### Añadido
+- `AndrewRadev/tagalong.vim`: sincroniza las etiquetas de apertura y cierre de
+  HTML/XML al renombrar (muy útil al editar HTML/CSS)
+- `wolandark/vim-live-server` (plugin de recarga en vivo sin usar)
+- `mattn/emmet-vim` (expansión de abreviaturas Emmet en pruebas, con
+  configuración mínima)
 
 ## [2.0.2] - 2025-12-03
-### Added
-- Enable hybrid line numbers ('number' + 'relativenumber')
-- Add `~/.vimrc` bookmark in vim-startify
-- Disable NERDTree line count to prevent breaking `tiagofumo/vim-nerdtree-syntax-highlight`
+### Añadido
+- Se habilitan los números de línea híbridos ('number' + 'relativenumber')
+- Se añade el marcador `~/.vimrc` en vim-startify
+- Se deshabilita el recuento de líneas de NERDTree para no romper
+  `tiagofumo/vim-nerdtree-syntax-highlight`
 
 ## [2.0.1] - 2025-11-30
-### Added
-- Auto-close Vim when only NERDTree remains in the only tab
-- Auto-close current tab when NERDTree is the only window left in it
-- Show file line counts in NERDTree (`NERDTreeFileLines = 1`)
+### Añadido
+- Cierre automático de Vim cuando solo queda NERDTree en la única pestaña
+- Cierre automático de la pestaña actual cuando NERDTree es la única ventana
+  que queda en ella
+- Se muestra el recuento de líneas en NERDTree (`NERDTreeFileLines = 1`)
 
 ## [2.0.0] - 2025-11-29
-### Added
-- Automatic vim-startify + NERDTree on startup when opening Vim without arguments
-- `<LEADER>n` -> Toggle NERDTree
-- `<LEADER>f` -> Reveal current file NERDTreeToggle (replaced by `<LEADER>n`)
-- Update MAPPINGS section with new keybindings documentation
+### Añadido
+- vim-startify + NERDTree automáticos al abrir Vim sin argumentos
+- `<LEADER>n` -> alternar NERDTree
+- `<LEADER>f` -> mostrar el fichero actual con NERDTreeToggle (sustituido por
+  `<LEADER>n`)
+- Se actualiza la sección MAPPINGS con la documentación de los nuevos atajos de
+  teclado
 
 ## [1.9.0] - 2025-11-27
-### Added
-- `tiagofumo/vim-nerdtree-syntax-highlight` → syntax highlighting in NERDTree
-- `ryanoasis/vim-devicons` → file icons in NERDTree
-- Leader key set to comma: `let mapleader = ","`
-- Quick save shortcut: `,w` → `:w<ENTER>`
+### Añadido
+- `tiagofumo/vim-nerdtree-syntax-highlight` → resaltado de sintaxis en NERDTree
+- `ryanoasis/vim-devicons` → iconos de fichero en NERDTree
+- Tecla líder fijada en la coma: `let mapleader = ","`
+- Atajo de guardado rápido: `,w` → `:w<ENTER>`
 
 ## [1.8.0] - 2025-11-26
-### Added
-- Add custom statusline  
-- Replaced the default statusline with a clean, informative one that shows:  
-- Full file path (%F)  
-- Modified/Readonly flags (%M %R)  
+### Añadido
+- Añadir statusline personalizado  
+- Se sustituye el statusline por defecto por uno limpio e informativo que
+  muestra:  
+- Ruta completa del fichero (%F)  
+- Indicadores de modificado y solo lectura (%M %R)  
 - Filetype (%Y)  
-- ASCII value (%b) and hex value (0x%B) of current character  
-- Current row, column and percentage (%l,%c %p%%)
+- Valor ASCII (%b) y valor hexadecimal (0x%B) del carácter actual  
+- Fila, columna y porcentaje actuales (%l,%c %p%%)
 
 ## [1.7.0] - 2025-11-26
-### Added
-- Disable vim-startify automatic directory change (`let g:startify_change_to_dir = 0`)
+### Añadido
+- Se deshabilita el cambio automático de directorio de vim-startify
+  (`let g:startify_change_to_dir = 0`)
 
 ## [1.6.0] - 2025-11-20
-### Added
-- NERDTree now opens on the **right** side (`let g:NERDTreeWinPos = "right"`)
-### Changed
-- Switch default colorscheme to **CosmicLunarC5**
-- Remove line numbers and relative numbers for a more minimal look
-- Remove `wolandark/vim-live-server` (unnecessary browser-sync dependency)
+### Añadido
+- NERDTree ahora se abre en el lado **derecho** (`let g:NERDTreeWinPos = "right"`)
+### Cambiado
+- El colorscheme por defecto pasa a ser **CosmicLunarC5**
+- Se eliminan los números de línea y los relativos para un aspecto más
+  minimalista
+- Se elimina `wolandark/vim-live-server` (dependencia innecesaria de browser-sync)
 
 ## [1.5.0] - 2025-11-19
-### Changed
-- Complete refactor and reorganization of `.vimrc`
-- Divided into 5 clearly commented sections for better readability and maintenance
-- Grouped related settings and improved visual structure
-- Moved plugin-specific mappings (NERDTree) to dedicated section
-- Minor syntax optimizations (combined `set` commands where possible)
+### Cambiado
+- Refactorización y reorganización completas de `.vimrc`
+- Se divide en 5 secciones bien comentadas para mejorar la legibilidad y el
+  mantenimiento
+- Se agrupan los ajustes relacionados y se mejora la estructura visual
+- Los mapeos de los plugins (NERDTree) se mueven a una sección propia
+- Pequeñas optimizaciones de sintaxis (comandos `set` combinados donde se puede)
 
 ## [1.4.0] - 2025-11-19
-### Added
-- New plugin: 'gerardbm/vim-atomic'
-- Set 'colorscheme atomic' as default theme (loads correctly after plugins)
+### Añadido
+- Nuevo plugin: 'gerardbm/vim-atomic'
+- Se define 'colorscheme atomic' como tema por defecto (se carga bien tras los
+  plugins)
 
 ## [1.3.1] - 2025-11-18
-### Fixed
-- Corrected NERDTree toggle keymap: changed `:ERDTreeToggle` → `:NERDTreeToggle`
+### Corregido
+- Se corrigió el mapeo de alternancia de NERDTree: `:ERDTreeToggle` →
+  `:NERDTreeToggle`
 
 ## [1.3.0] - 2025-11-18
-### Added
-- Persistent undo:
+### Añadido
+- Undo persistente:
 - `undodir=~/.vim/backup`
 - `undofile`
 - `undoreload=10000`
-- FileType-specific settings:
-- HTML files: `shiftwidth=2`, `tabstop=2`, `expandtab`
+- Ajustes por FileType:
+- Ficheros HTML: `shiftwidth=2`, `tabstop=2`, `expandtab`
 
 ## [1.2.0] - 2025-11-18
-### Added
-- Custom keymaps:
-- Insert mode: `jj` → Esc
-- Normal mode: `<SPACE>` → command mode, `o`/`O` → new line
-- Window navigation: `<C-h/j/k/l>` → move between windows
-- Window resizing: `<C-UP/DOWN/LEFT/RIGHT>`
-- Plugin shortcuts: `<C-n>` → toggle NERDTree
+### Añadido
+- Mapeos de teclado propios:
+- Modo inserción: `jj` → Esc
+- Modo normal: `<SPACE>` → modo comando, `o`/`O` → nueva línea
+- Navegación entre ventanas: `<C-h/j/k/l>` → moverse entre ventanas
+- Redimensionado de ventanas: `<C-UP/DOWN/LEFT/RIGHT>`
+- Atajos de plugins: `<C-n>` → alternar NERDTree
 
 ## [1.1.0] - 2025-11-18
-### Added
+### Añadido
 - Plugins:
-- ALE (Asynchronous Lint Engine) for linting
-- NERDTree for file navigation
-- CoC.nvim (release branch) for autocompletion
-- vim-startify for a startup screen
-- vim-live-server for live reload development
+- ALE (Asynchronous Lint Engine) para el linting
+- NERDTree para la navegación de ficheros
+- CoC.nvim (rama release) para el autocompletado
+- vim-startify como pantalla de inicio
+- vim-live-server para el desarrollo con recarga en vivo
 
 ## [1.0.0] - 2025-11-18
-### Added
-- Basic Vim settings (filetype, autoread)
-- Visual enhancements (syntax highlighting, dark background, line numbers, relative numbers, scroll offset)
-- Tab and indentation settings (shiftwidth, tabstop, expandtab)
-- Backup settings disabled (noswapfile, nowritebackup)
-- Search enhancements (incsearch, ignorecase, smartcase, showmatch, hlsearch)
-- Command history configured (history=1000)
-- Command-line completion enhancements (wildmenu, wildmode=list:longest,full)
-- Ignored file types for completion (`*.docx, *.jpg, *.png, *.gif, *.pdf, *.pyc, *.exe, *.flv, *.img, *.xlsx, *.o`)
+### Añadido
+- Ajustes básicos de Vim (filetype, autoread)
+- Mejoras visuales (resaltado de sintaxis, fondo oscuro, números de línea,
+  números relativos, scroll offset)
+- Ajustes de tabulación e indentación (shiftwidth, tabstop, expandtab)
+- Ajustes de copia de seguridad deshabilitados (noswapfile, nowritebackup)
+- Mejoras en la búsqueda (incsearch, ignorecase, smartcase, showmatch, hlsearch)
+- Historial de comandos configurado (history=1000)
+- Mejoras en el completado de la línea de comandos (wildmenu,
+  wildmode=list:longest,full)
+- Filetypes ignorados en el completado (`*.docx, *.jpg, *.png, *.gif, *.pdf, *.pyc, *.exe, *.flv, *.img, *.xlsx, *.o`)
