@@ -113,9 +113,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Habilitar Live-Server
 Plug 'https://github.com/wolandark/vim-live-server.git', { 'do': 'sudo npm install -g live-server' }
 
-" Expansión de abreviaturas HTML/CSS
-Plug 'mattn/emmet-vim'
-
 " ==============================
 " Apariencia
 " ==============================
@@ -199,14 +196,6 @@ let g:NERDTreeExactMatchHighlightFullName = 1
 " Aplica el resaltado al nombre completo
 " Cuando coincide con un patrón definido (*.config.js, *.test.ts, etc)
 let g:NERDTreePatternMatchHighlightFullName = 1
-
-" ==============================
-" Emmet
-" ==============================
-
-" Activar Emmet solo en ficheros html y css
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
 
 " ==========================================================================
 " 4. MAPPINGS
