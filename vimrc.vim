@@ -27,6 +27,7 @@ filetype indent on
 syntax on " Activar resalto de sintaxis
 set number " Mostrar número de líneas absoluto
 set relativenumber " Mostrar número de líneas relativo
+set signcolumn=yes " Columna de signos siempre visible
 set scrolloff=10  " Mantener 10 líneas de margen vertical al desplazarse
 set linebreak " Evita cortar palabras al hacer wrap
 set termguicolors " Mejor soporte de colores
@@ -256,6 +257,7 @@ set statusline+=%f " %F -> Ruta completa del fichero, he cambiado %F -> %f para 
 set statusline+=\ %M " %M -> Muestra + si el fichero está modificado
 set statusline+=\ %Y " %Y -> Tipo de fichero
 set statusline+=\ %R " %R -> Muestra RO si el fichero está en modo lectura
+set statusline+=%{coc#status()} " Estado de CoC (diagnósticos, servidor...)
 
 set statusline+=%= " Divide el statusline en dos partes, todo lo que esté antes a la izquierda, lo que esté después a la derecha
 

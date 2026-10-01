@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## [2.6.0] - 2026-10-01
+### Añadido
+- `set signcolumn=yes` en la sección de interfaz. Con el valor por defecto
+  `auto` la columna de signos aparece y desaparece según haya contenido, lo que
+  desplaza el texto dos caracteres; con `yes` queda reservada siempre. Afecta a
+  los signos de `coc.nvim`, `ale` y `vim-gitgutter`, y la propia documentación de
+  coc.nvim recomienda fijarlo (`doc/coc.txt`)
+- `%{coc#status()}` en la parte izquierda del statusline, tras `%R`. Muestra el
+  recuento de errores (`E n`) y avisos (`W n`). Devuelve cadena vacía cuando el
+  buffer no tiene diagnósticos, que es el comportamiento normal esperado
+### Notas
+- `set nobackup` no se añadió: `'backup'` ya viene en `off` por defecto y, con
+  `set nowritebackup` de la sección de backup, la tabla `backup-table` da "no
+  backup made"
+- `set updatetime=300` no se añadió: con `set noswapfile` su mitad del volcado
+  de swap es inerte, y el reloj del statusline funciona bien con el default de
+  4000 ms
+
 ## [2.5.1] - 2026-09-30
 ### Eliminado
 - `g:tokyonight_enable_italic = 1`: se retira la cursiva en keywords porque la fuente
