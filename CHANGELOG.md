@@ -10,6 +10,9 @@
 - `%{coc#status()}` en la parte izquierda del statusline, tras `%R`. Muestra el
   recuento de errores (`E n`) y avisos (`W n`). Devuelve cadena vacía cuando el
   buffer no tiene diagnósticos, que es el comportamiento normal esperado
+- Plugin `Yggdroot/indentLine` para mostrar líneas de indentado.
+- Autocmd para filetypes HTML, CSS, JavaScript y JSON: `setlocal shiftwidth=2 tabstop=2 expandtab`.
+
 ### Notas
 - `set nobackup` no se añadió: `'backup'` ya viene en `off` por defecto y, con
   `set nowritebackup` de la sección de backup, la tabla `backup-table` da "no

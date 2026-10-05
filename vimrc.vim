@@ -106,6 +106,9 @@ Plug 'airblade/vim-gitgutter'
 " Muestra iconos de git en NERDTree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" Muestra indentado
+Plug 'Yggdroot/indentLine'
+
 " ==============================
 " Web development
 " ==============================
@@ -228,6 +231,9 @@ nnoremap <C-RIGHT> <C-w><
 " ==========================================================================
 " 5. VIMSCRIPT
 " ==========================================================================
+
+" Para tabular con 2 espacios ficheros html, css, javascript, json
+autocmd FileType html,css,javascript,json setlocal shiftwidth=2 tabstop=2 expandtab
 
 " Prettier al guardar en ficheros web (receta oficial de coc.nvim)
 augroup coc_fmt
