@@ -77,7 +77,7 @@ Vincula el fichero de configuración del repositorio con tu `~/`.
 rm -r ~/.vimrc
 
 # Crear enlace simbólico de vimrc.vim a ~/.vimrc
-ln -s $(pwd)/vimrc.vim ~/.vimrc
+ln -sf "$(pwd)/vimrc.vim" ~/.vimrc
 ```
 
 ## Actualización
