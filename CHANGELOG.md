@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## [2.6.1] - 2026-11-05
+### Añadido
+- Se amplían los bookmarks de vim-startify: `~/.vimrc`, `~/.bashrc`,
+  `~/.config/hypr/hyprland.lua` y `~/.config/kitty/kitty.conf`. Al definirse como
+  strings, Startify les asigna índices numéricos automáticos
+### Cambiado
+- Se elimina la línea comentada con los bookmarks anteriores de vim-startify
+### Corregido
+- El README crea el enlace simbólico con `ln -sf` y la ruta entre comillas, para
+  reemplazar un `~/.vimrc` existente y tolerar espacios en la ruta
+
 ## [2.6.0] - 2026-10-01
 ### Añadido
 - `set signcolumn=yes` en la sección de interfaz. Con el valor por defecto
