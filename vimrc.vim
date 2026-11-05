@@ -175,7 +175,7 @@ autocmd VimEnter *
             \ | endif
 
 " Bookmarks
-let g:startify_bookmarks = [{'c': '~/.vimrc'}]
+let g:startify_bookmarks = ['~/.vimrc', '~/.bashrc', '~/.config/hypr/hyprland.lua', '~/.config/kitty/kitty.conf']
 
 " ==============================
 " vim-nerdtree-syntax-highlight
